@@ -9,3 +9,4 @@ Contenido del vídeo:
 3. Creando ProductRepositoy
 4. Creando ProductController y EndPoints
 5. Test en Postman
+6. SonarCloud switching to CI-based analysis
