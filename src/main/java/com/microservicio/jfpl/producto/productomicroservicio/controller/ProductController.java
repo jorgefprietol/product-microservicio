@@ -4,6 +4,7 @@ import com.microservicio.jfpl.producto.productomicroservicio.entity.ProductEntit
 import com.microservicio.jfpl.producto.productomicroservicio.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,6 +24,23 @@ public class ProductController {
 
     }
 
-    public void createProduct(@RequestBody ProductEntity productEntity)
+    /*
+    @GetMapping
+    public ResponseEntity<List<ProductEntity>> getAllProduct(){
+
+        List<ProductEntity> productEntities = productRepository.findAll();
+        ResponseEntity<List<ProductEntity>> responseEntity = new ResponseEntity<>(productEntities, HttpStatus.OK);
+        return responseEntity;
+
+    }
+     */
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public void createProduct(@RequestBody ProductEntity productEntity){
+
+        productRepository.save(productEntity);
+
+    }
 
 }
